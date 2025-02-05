@@ -11,6 +11,7 @@ This is an API that takes a number and returns interesting mathematical properti
 - **Fun Fact**: Returns a fun fact from [NUMBERSAPI](http://numbersapi.com/#42)
 - **CORS enabled** for cross-origin requests
 -  **HTTP Status Codes**
+-  **JSON Responses**
 
 ## Technology stack
 - **Programming Language:** Python
@@ -18,5 +19,23 @@ This is an API that takes a number and returns interesting mathematical properti
 -  **Deployment:** AWS
    
 ## API Specification
-**Endpoint
+**Endpoint**
 - **GET** <your-url>/api/classify-number?number=371
+## RESPONSE (200 OK)
+```
+{
+  "number": 371,
+  "is_prime": false,
+  "is_perfect": false,
+  "properties": ["armstrong", "odd"],
+  "class_sum": 11,
+  "fun_fact": "371 is an Armstrong number because 3^3 + 7^3 + 1^3 = 371"
+}
+```
+## RESPONSE (400 BAD REQUEST)
+```
+{
+    "number": "alphabet",
+    "error": true
+}
+```
