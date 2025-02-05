@@ -17,11 +17,12 @@ This is an API that takes a number and returns interesting mathematical properti
 - **Programming Language:** Python
 -  **Framework:** Flask
 -  **Deployment:** AWS
+-   **Version Control:** Git
    
 ## API Specification
 **Endpoint**
 - **GET** <your-url>/api/classify-number?number=371
-## RESPONSE (200 OK)
+## Response (200 OK)
 ```
 {
   "number": 371,
@@ -32,10 +33,16 @@ This is an API that takes a number and returns interesting mathematical properti
   "fun_fact": "371 is an Armstrong number because 3^3 + 7^3 + 1^3 = 371"
 }
 ```
-## RESPONSE (400 BAD REQUEST)
+## Response (400 Bad Request)
 ```
 {
     "number": "alphabet",
     "error": true
 }
 ```
+
+### Setup and Installation
+- **launch an ec2 instance in AWS
+- **ensure you open port 5000 for python
+- **ssh into your instance
+- 
