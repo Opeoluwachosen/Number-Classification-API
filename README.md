@@ -42,7 +42,38 @@ This is an API that takes a number and returns interesting mathematical properti
 ```
 
 ### Setup and Installation
-- **launch an ec2 instance in AWS
-- **ensure you open port 5000 for python
-- **ssh into your instance
-- 
+- **launch an ec2 instance in AWS**
+- **Allow port 5000 from anywhere for python Flask API**
+- **ssh into your instance**
+- **Install Python and its dependencies**
+```
+sudo apt update -y
+sudo apt install python3 python3-pip
+```
+- **Verify the installation of Python and Pip**
+```
+python3 --versio
+pip3 --version
+```
+- **Set Up a Virtual Environment and Install Dependencies in a directory**
+```
+mkdir num_dir && cd num_dir
+
+# install python3 virtual environment
+sudo apt install python3-venv
+
+# create a virtual environment
+python3 -m venv myenv
+
+# Activate the virtual environment
+source myenv/bin/activate
+
+# Install required dependencies
+pip install -r requirements.txt
+```
+
+- **Verify Installation
+```
+pip list | grep flask
+ ```
+
