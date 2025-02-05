@@ -41,7 +41,7 @@ This is an API that takes a number and returns interesting mathematical properti
 }
 ```
 
-### Setup and Installation
+## Setup and Installation
 - **launch an ec2 instance in AWS**
 - **Allow port 5000 from anywhere for python Flask API**
 - **ssh into your instance**
@@ -52,7 +52,7 @@ sudo apt install python3 python3-pip
 ```
 - **Verify the installation of Python and Pip**
 ```
-python3 --versio
+python3 --version
 pip3 --version
 ```
 - **Set Up a Virtual Environment and Install Dependencies in a directory**
@@ -76,4 +76,12 @@ pip install -r requirements.txt
 ```
 pip list | grep flask
  ```
+- **Clone the Project from GitHub into EC2**
+  ```
+  https://github.com/Opeoluwachosen/Number-Classification-API.git
+  ```
 
+- **Run the Flask API**
+```
+python app.py
+```
