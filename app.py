@@ -16,7 +16,7 @@ def is_prime(n):
             return False
     return True
 
-# Check if a number is perfect. Only defined for positive numbers           
+# Check if a number is perfect. Only defined for positive numbers
 def is_perfect(n):
     if n < 2:
         return False
@@ -30,11 +30,11 @@ def is_armstrong(n):
 
     for i in num_str:
         sum += int(i) ** num_digits
-    
+
     return sum == n
 
 def digit_sum(n):
-    return f"{sum(int(i) for i in str((n)))}, // sum of its digits" 
+    return sum(int(i) for i in str(n))  # Simplified digit sum calculation
 
 # check if a number is even or odd
 def get_parity(n):
@@ -43,14 +43,14 @@ def get_parity(n):
 # Return a list of mathematical properties.
 def get_properties(n):
     properties = [get_parity(n)]
-    
+
     if is_armstrong(n):
         properties.append("armstrong")
     return properties
 
 # Fetch a fun fact about the number from the Numbers API with a timeout.
 def get_fun_fact(n):
-    url = f"http://numbersapi.com/{n}/math"  
+    url = f"http://numbersapi.com/{n}/math"
     try:
         response = requests.get(url, timeout=2)  # Timeout after 2 seconds
         if response.status_code == 200:
@@ -70,7 +70,7 @@ def classify_number():
             "number": "alphabet",
             "error": True
         }), 400
-            
+
     number = int(number_str)
 
     response = {
@@ -78,10 +78,10 @@ def classify_number():
         "is_prime": is_prime(number),
         "is_perfect": is_perfect(number),
         "properties": get_properties(number),
-        "digit_sum": digit_sum(number), 
-        "fun_fact": get_fun_fact(number)   
+        "digit_sum": digit_sum(number),
+        "fun_fact": get_fun_fact(number)
     }
-        
+
     # If the number is an Armstrong number, override the fun_fact
     if is_armstrong(number):
         digits = [int(i) for i in str(number)]
@@ -89,8 +89,8 @@ def classify_number():
         calculation = f"{' + '.join(f'{i}^{length}' for i in digits)} = {number}"
         response["fun_fact"] = f"{number} is an Armstrong number because {calculation}"
 
-    return jsonify(response), 200  
-    
-# Run the app        
+    return jsonify(response), 200
+
+# Run the app
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
