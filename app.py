@@ -63,7 +63,7 @@ def get_fun_fact(n):
 @app.route("/api/classify-number", methods=['GET'])
 def classify_number():
     
-        number = int(request.args.get(n))
+        number = int(request.args.get("number"))
 
         if not number:
             return jsonify({"number": "alphabet",
