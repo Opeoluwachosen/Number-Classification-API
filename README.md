@@ -60,7 +60,7 @@ pip3 --version
 - **Clone and change directory into the Project from GitHub into EC2**
 ```
 https://github.com/Opeoluwachosen/Number-Classification-API.git
-cd number-classification-api
+cd Number-Classification-API
 ```
 
 - **Set Up a Virtual Environment and Install Dependencies in a directory**
