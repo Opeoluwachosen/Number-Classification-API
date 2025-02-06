@@ -68,7 +68,7 @@ def classify_number():
     if number_str is None or not number_str.lstrip('-').isdigit():
         return jsonify({
             "number": "alphabet",
-            "error": true
+            "error": True
         }), 400
             
     number = int(number_str)
