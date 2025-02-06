@@ -50,37 +50,38 @@ This is an API that takes a number and returns interesting mathematical properti
 sudo apt update -y
 sudo apt install python3 python3-pip
 ```
+
 - **Verify the installation of Python and Pip**
 ```
 python3 --version
 pip3 --version
 ```
+
+- **Clone and change directory into the Project from GitHub into EC2**
+```
+https://github.com/Opeoluwachosen/Number-Classification-API.git
+cd number-classification-api
+```
+
 - **Set Up a Virtual Environment and Install Dependencies in a directory**
 ```
-mkdir num_dir && cd num_dir
-
 # install python3 virtual environment  
 sudo apt install python3-venv
 
 # create a virtual environment  
 python3 -m venv myenv
 
- # Activate the virtual environment  
+# Activate the virtual environment  
 source myenv/bin/activate
 
 # Install required dependencies  
 pip install -r requirements.txt
 ```
 
-- **Verify Installation
+- **Verify Installation**
 ```
 pip list | grep flask
- ```
-- **Clone the Project from GitHub into EC2**
 ```
-  https://github.com/Opeoluwachosen/Number-Classification-API.git
- ```
-
 - **Run the Flask API**
 ```
 python app.py
