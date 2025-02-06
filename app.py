@@ -62,35 +62,35 @@ def get_fun_fact(n):
 # API Endpoint
 @app.route("/api/classify-number", methods=['GET'])
 def classify_number():
-    
-        number = int(request.args.get("number"))
+    number_str = request.args.get("n")
 
-        if not number:
-            return jsonify({"number": "alphabet",
-                            "error": True
+    # If number parameter is missing
+    if number_str is None or not number_str.isdigit():
+        return jsonify({"number": "alphabet",    
+                        "error": True
                     }), 400
-        
-        response = {
-
-            "number": number,
-            "is_prime": is_prime(number),
-            "is_perfect": is_perfect(number),
-            "properties": get_properties(number),
-            "digit_sum": digit_sum(number), 
-            "fun_fact": get_fun_fact(number)
             
-        }
+    number = int(number_str)
+        
+    response = {
+        "number": number,
+        "is_prime": is_prime(number),
+        "is_perfect": is_perfect(number),
+        "properties": get_properties(number),
+        "digit_sum": digit_sum(number), 
+        "fun_fact": get_fun_fact(number)   
+    }
         
         # if fun_fact is an armstrong number, Override
-        if is_armstrong(number):
-            digits = [int(i) for i in str(number)]
-            length = len(digits)
-            calculation = f"{' + '.join(f'{i}^{length}' for i in digits)} = {number}"
-            response["fun_fact"] = f"{number} is an Armstrong number because {calculation}"
+    if is_armstrong(number):
+        digits = [int(i) for i in str(number)]
+        length = len(digits)
+        calculation = f"{' + '.join(f'{i}^{length}' for i in digits)} = {number}"
+        response["fun_fact"] = f"{number} is an Armstrong number because {calculation}"
 
 
-        return jsonify(response), 200   
+    return jsonify(response), 200   
 
-        
+# Run the app        
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
