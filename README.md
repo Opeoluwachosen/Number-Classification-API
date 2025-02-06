@@ -77,9 +77,9 @@ pip install -r requirements.txt
 pip list | grep flask
  ```
 - **Clone the Project from GitHub into EC2**
-  ```
+```
   https://github.com/Opeoluwachosen/Number-Classification-API.git
-  ```
+ ```
 
 - **Run the Flask API**
 ```
