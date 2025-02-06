@@ -67,8 +67,8 @@ def classify_number():
     # If number parameter is missing or not a valid integer
     if number_str is None or not number_str.lstrip('-').isdigit():
         return jsonify({
-            "error": True,
-            "message": "Invalid input. Please provide an integer."
+            "number": "alphabet",
+            "error": true
         }), 400
             
     number = int(number_str)
@@ -89,7 +89,7 @@ def classify_number():
         calculation = f"{' + '.join(f'{i}^{length}' for i in digits)} = {number}"
         response["fun_fact"] = f"{number} is an Armstrong number because {calculation}"
 
-    return jsonify(response), 200    
+    return jsonify(response), 200  
     
 # Run the app        
 if __name__ == '__main__':
