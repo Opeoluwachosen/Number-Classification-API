@@ -64,14 +64,15 @@ def get_fun_fact(n):
 def classify_number():
     number_str = request.args.get("n")
 
-    # If number parameter is missing
-    if number_str is None or not number_str.isdigit():
-        return jsonify({"number": "alphabet",    
-                        "error": True
-                    }), 400
+    # If number parameter is missing or not a valid integer
+    if number_str is None or not number_str.lstrip('-').isdigit():
+        return jsonify({
+            "error": True,
+            "message": "Invalid input. Please provide an integer."
+        }), 400
             
     number = int(number_str)
-        
+
     response = {
         "number": number,
         "is_prime": is_prime(number),
@@ -81,16 +82,15 @@ def classify_number():
         "fun_fact": get_fun_fact(number)   
     }
         
-        # if fun_fact is an armstrong number, Override
+    # If the number is an Armstrong number, override the fun_fact
     if is_armstrong(number):
         digits = [int(i) for i in str(number)]
         length = len(digits)
         calculation = f"{' + '.join(f'{i}^{length}' for i in digits)} = {number}"
         response["fun_fact"] = f"{number} is an Armstrong number because {calculation}"
 
-
-    return jsonify(response), 200   
-
+    return jsonify(response), 200    
+    
 # Run the app        
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
