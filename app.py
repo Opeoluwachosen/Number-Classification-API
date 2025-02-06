@@ -60,10 +60,10 @@ def get_fun_fact(n):
     return "No fun fact available for {n}."
 
 # API Endpoint
-@app.route("/api/classify-number", methods=["GET"])
+@app.route("/api/classify-number", methods=['GET'])
 def classify_number():
     
-        number = int(request.args.get("n"))
+        number = int(request.args.get('n'))
 
         if not number:
             return jsonify({"number": "alphabet",
