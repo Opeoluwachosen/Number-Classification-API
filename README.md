@@ -47,8 +47,8 @@ This is an API that takes a number and returns interesting mathematical properti
 - **ssh into your instance**
 - **Install Python and its dependencies**
 ```
-sudo apt update -y
-sudo apt install python3 python3-pip
+sudo apt update 
+sudo apt install python3 python3-pip -y
 ```
 
 - **Verify the installation of Python and Pip**
@@ -59,14 +59,14 @@ pip3 --version
 
 - **Clone and change directory into the Project from GitHub into EC2**
 ```
-https://github.com/Opeoluwachosen/Number-Classification-API.git
+git clone https://github.com/Opeoluwachosen/Number-Classification-API.git
 cd Number-Classification-API
 ```
 
 - **Set Up a Virtual Environment and Install Dependencies in a directory**
 ```
 # install python3 virtual environment  
-sudo apt install python3-venv
+sudo apt install python3-venv -y
 
 # create a virtual environment  
 python3 -m venv myenv
