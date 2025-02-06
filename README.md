@@ -80,7 +80,7 @@ pip install -r requirements.txt
 
 - **Verify Installation**
 ```
-pip list | grep flask
+pip list 
 ```
 - **Run the Flask API**
 ```
