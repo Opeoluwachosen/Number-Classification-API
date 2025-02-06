@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
-import requests
 from flask_cors import CORS
+import requests
+import math
 
 app = Flask(__name__)
-CORS(app)
 
 # Enable CORS (restricting to API routes for security)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -11,7 +11,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 def is_prime(n):
     if n < 2:
         return False
-    for i in range(2, n):
+    for i in range(2, int(math.sqrt(n) + 1):
         if n % i == 0:
             return False
     return True
@@ -50,14 +50,14 @@ def get_properties(n):
 
 # Fetch a fun fact about the number from the Numbers API with a timeout.
 def get_fun_fact(n):
-    url = f"http://numbersapi.com/{(n)}/math"  
+    url = f"http://numbersapi.com/{n}/math"  
     try:
-        response = requests.get(url)  # Timeout after 2 seconds
+        response = requests.get(url, timeout=2)  # Timeout after 2 seconds
         if response.status_code == 200:
             return response.text
     except requests.exceptions.RequestException:
         return "Fun fact unavailable at the moment."
-    return "No fun fact available for {n}."
+    return f"No fun fact available for {n}."
 
 # API Endpoint
 @app.route("/api/classify-number", methods=['GET'])
